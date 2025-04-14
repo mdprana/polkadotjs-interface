@@ -14,7 +14,7 @@ const Home: React.FC = () => {
           Polkadot Parachain Interface
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-          A modern interface for interacting with Substrate-based blockchains
+          A modern interface for interacting with blockchains
         </p>
       </div>
       
@@ -139,14 +139,14 @@ const Home: React.FC = () => {
       <div className="bg-white/50 backdrop-blur-sm p-6 rounded-xl shadow-lg mb-12">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-6 md:mb-0">
-            <h3 className="text-xl font-bold text-gray-800 mb-2">Substrate Dev Template</h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">Zombienet's CLI</h3>
             <p className="text-gray-600">
               Built with React, TypeScript, and PolkadotJS API
             </p>
           </div>
           <div className="flex gap-4">
             <a 
-              href="https://github.com/MandalaChain/substrate-dev-template" 
+              href="https://github.com/mdprana/polkadotjs-interface" 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors flex items-center"
@@ -157,7 +157,7 @@ const Home: React.FC = () => {
               GitHub
             </a>
             <a 
-              href="https://polkadot.js.org/docs/" 
+              href="https://docs.polkadot.com/tutorials/polkadot-sdk/testing/spawn-basic-chain/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors flex items-center"
