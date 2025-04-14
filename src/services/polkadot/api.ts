@@ -3,24 +3,19 @@ import { web3Accounts, web3Enable } from '@polkadot/extension-dapp';
 
 // Get endpoint from environment or localStorage or fallback to default
 const getDefaultEndpoint = (): string => {
-  // Check localStorage first
+  // Check localStorage first (most important for dynamic Zombienet ports)
   const savedEndpoint = localStorage.getItem('polkadot_endpoint');
   if (savedEndpoint) {
     return savedEndpoint;
   }
   
-  // Then environment variable if available (using process.env for Create React App)
-  if (process.env.REACT_APP_WS_ENDPOINT) {
+  // Then environment variable if available and not empty
+  if (process.env.REACT_APP_WS_ENDPOINT && process.env.REACT_APP_WS_ENDPOINT !== '') {
     return process.env.REACT_APP_WS_ENDPOINT;
   }
   
-  // Public endpoints as fallback (uncommenting one of these can help for demo purposes)
-  // return 'wss://rpc.polkadot.io';  // Polkadot mainnet
-  // return 'wss://kusama-rpc.polkadot.io';  // Kusama
-  // return 'wss://westend-rpc.polkadot.io';  // Westend (testnet)
-  
-  // Last resort fallback for local development
-  return 'ws://127.0.0.1:9944';
+  // For local development, return empty string to force user selection
+  return '';
 };
 
 // Keep track of the current endpoint and API instance
