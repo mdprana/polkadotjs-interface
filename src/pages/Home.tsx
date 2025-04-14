@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useApi } from '../context/ApiContext';
+import EndpointSelector from '../components/common/EndpointSelector';
 
 const Home: React.FC = () => {
   const { isApiReady, connectionError, isConnecting } = useApi();
@@ -8,17 +9,22 @@ const Home: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto px-4">
       {/* Hero Section */}
-      <div className="text-center my-12">
-        <h1 className="text-5xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+      <div className="text-center my-8 md:my-12">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
           Polkadot Parachain Interface
         </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
           A modern interface for interacting with Substrate-based blockchains
         </p>
       </div>
       
+      {/* Endpoint Selector - Added for connecting to different nodes */}
+      <div className="mb-8">
+        <EndpointSelector />
+      </div>
+      
       {/* Connection Status Pill */}
-      <div className="flex justify-center mb-12">
+      <div className="flex justify-center mb-8 md:mb-12">
         {connectionError ? (
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-red-100 text-red-800 shadow-lg border border-red-200">
             <span className="h-3 w-3 rounded-full bg-red-500 mr-2 animate-pulse"></span>
@@ -38,20 +44,20 @@ const Home: React.FC = () => {
       </div>
       
       {/* Interface Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         <Link 
           to="/chainstate" 
-          className="group block relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+          className="group block relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-800 opacity-90 group-hover:opacity-100 transition-opacity"></div>
-          <div className="relative p-8 text-white">
-            <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="relative p-6 text-white">
+            <div className="bg-white/20 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold mb-4">ChainState</h2>
-            <p className="text-white/80 mb-6">
+            <h2 className="text-xl font-bold mb-3">ChainState</h2>
+            <p className="text-white/80 mb-4">
               Query blockchain state storage and view data stored on-chain
             </p>
             <div className="inline-flex items-center text-white/90 font-medium">
@@ -65,17 +71,17 @@ const Home: React.FC = () => {
         
         <Link 
           to="/extrinsics" 
-          className="group block relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+          className="group block relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-pink-600 to-rose-800 opacity-90 group-hover:opacity-100 transition-opacity"></div>
-          <div className="relative p-8 text-white">
-            <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="relative p-6 text-white">
+            <div className="bg-white/20 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold mb-4">Extrinsics</h2>
-            <p className="text-white/80 mb-6">
+            <h2 className="text-xl font-bold mb-3">Extrinsics</h2>
+            <p className="text-white/80 mb-4">
               Submit transactions and interact with the blockchain
             </p>
             <div className="inline-flex items-center text-white/90 font-medium">
@@ -89,17 +95,17 @@ const Home: React.FC = () => {
         
         <Link 
           to="/transfer" 
-          className="group block relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+          className="group block relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 to-blue-800 opacity-90 group-hover:opacity-100 transition-opacity"></div>
-          <div className="relative p-8 text-white">
-            <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="relative p-6 text-white">
+            <div className="bg-white/20 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold mb-4">Transfer</h2>
-            <p className="text-white/80 mb-6">
+            <h2 className="text-xl font-bold mb-3">Transfer</h2>
+            <p className="text-white/80 mb-4">
               Send tokens to other accounts on the network
             </p>
             <div className="inline-flex items-center text-white/90 font-medium">
@@ -112,8 +118,25 @@ const Home: React.FC = () => {
         </Link>
       </div>
       
+      {/* Deployment Info */}
+      <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl shadow-md mb-12">
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">Deployment Information</h3>
+        <p className="text-gray-600 mb-4">
+          This application can connect to any Substrate-based blockchain, including:
+        </p>
+        <ul className="list-disc pl-6 text-gray-600 mb-4 space-y-1">
+          <li>Local Zombienet development nodes</li>
+          <li>Public Polkadot/Kusama networks</li>
+          <li>Westend testnet</li>
+          <li>Custom parachains</li>
+        </ul>
+        <p className="text-gray-600 text-sm">
+          Use the network selector above to change your connection endpoint.
+        </p>
+      </div>
+      
       {/* Footer */}
-      <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl shadow-lg mb-12">
+      <div className="bg-white/50 backdrop-blur-sm p-6 rounded-xl shadow-lg mb-12">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-6 md:mb-0">
             <h3 className="text-xl font-bold text-gray-800 mb-2">Substrate Dev Template</h3>
