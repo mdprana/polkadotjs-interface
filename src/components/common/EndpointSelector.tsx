@@ -105,6 +105,16 @@ const EndpointSelector: React.FC = () => {
             <option value="custom">Custom Endpoint</option>
           </select>
         </div>
+
+        {!endpoint && (
+        <div className="mt-2 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800">
+            <p className="font-medium">No endpoint connected!</p>
+            <p className="mt-1">
+            For local Zombienet development, please input the WebSocket port shown in your 
+            Zombienet console (e.g., ws://127.0.0.1:38087)
+            </p>
+        </div>
+        )}
         
         {showCustom && (
           <div className="flex flex-col space-y-2">
