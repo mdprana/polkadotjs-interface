@@ -1,0 +1,18 @@
+# Ignore Zombienet binaries and generated files
+**/polkadot
+**/polkadot-execute-worker
+**/polkadot-parachain
+**/polkadot-prepare-worker
+**/zombienet-linux
+**/zombienet-macos
+**/zombienet-windows
+*.log
+data/
+bin/
+
+# Build files
+/build
+/dist
+
+# Dependencies
+/node_modules
